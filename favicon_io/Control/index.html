@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Driving Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: relative;
+        }
+        canvas {
+            display: block;
+        }
+        /* Restart button style */
+        #restartButton {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #f28a30;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #restartButton:hover {
+            background-color: #d86a1b;
+        }
+        /* Radio button style */
+        #radioButton {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #radioButton:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- Restart button -->
+    <button id="restartButton">Restart</button>
+
+    <!-- Radio music button -->
+    <button id="radioButton">Play radio music</button>
+
+    <!-- Audio player -->
+    <audio id="carRadio">
+        <source src="/Users/liusteven/Desktop/VCU/大四/web design/Control/周杰倫 Jay Chou【一路向北 All the Way North】-Official Music Video.mp4" type="audio/mp3">
+        Your browser does not support audio playback.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
