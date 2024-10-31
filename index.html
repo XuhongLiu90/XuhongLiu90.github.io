@@ -1,16 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Xuhong's Homepage</title>
+        <!-- 添加 favicon，确保大小为32x32px或16x16px -->
+        <link rel="icon" type="image/png" href="/Users/liusteven/Desktop/VCU/大四/web design/HOME PAGE/IMG_7270.jpeg" sizes="32x32">
+        <style>
+            /* 全局样式 */
+            body {
+                background: url('/Users/liusteven/Desktop/VCU/大四/web design/HOME PAGE/IMG_7270.jpeg') no-repeat center center fixed; /* 正确的背景图片设置 */
+                background-size: cover; /* 图片自适应填充整个页面 */
+                font-family: 'Arial', sans-serif;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            /* 容器样式 */
+            .container {
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0.8); /* 设置白色方块的透明度 */
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                max-width: 500px;
+                width: 90%;
+            }
+
+            /* 标题样式 */
+            h1 {
+                color: #4CAF50;
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            /* 列表样式 */
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 15px;
+            }
+
+            /* 链接样式 */
+            a {
+                color: #4CAF50;
+                font-size: 1.2em;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            a:hover {
+                color: #f28a30;
+                text-decoration: underline;
+            }
+
+            /* 底部间距 */
+            footer {
+                margin-top: 20px;
+                color: #0dd9e8;
+                font-size: 0.9em;
+            }
+        </style>
     </head>
     <body>
-        <p>Have a good day</p>
-        <p>New one</p>
+        <div class="container">
+            <h1>Have a good one.</h1>
+            <h2>Here is Xuhong. Welcome!!!</h2>
+            <ul>
+                <li><a href="/Users/liusteven/Desktop/VCU/大四/web design/Fristwebsite/index.html">First Website</a></li>
+                <li><a href="reflecting-on-the-reading.html">Reflecting on the Reading</a></li>
+                <li><a href="/Users/liusteven/Desktop/VCU/大四/web design/passion/home.html">Passion Project</a></li>
+                <li><a href="/Users/liusteven/Desktop/VCU/大四/web design/HOME PAGE/aeyoon Choi, Hello World.html">aeyoon Choi, Hello World!</a></li>
+                <li><a href="/Users/liusteven/Desktop/VCU/大四/web design/HOME PAGE/Callum Copley .html">Callum Copley</a></li>
+                <li><a href="/Users/liusteven/Desktop/VCU/大四/web design/HOME PAGE/Becca Abbe/indext.html">Becca Abbe</a></li>
+            </ul>
+        </div>
 
-        <h1>Have a good one</h1>
-        <ul>
-            <li><a href="frist website/index.html">First Website</a></li>
-            <li><a href="reflecting-on-the-reading.html">Reflecting on the Reading</a></li>
-        </ul>
+        <footer>
+            &copy; 2024 Xuhong's Homepage. All rights reserved.
+        </footer>
     </body>
 </html>
