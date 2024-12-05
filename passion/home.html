@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<head>
+<title>Most Popular Cars in China 中国最火汽车</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00ccff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #c00d0d;
+            color: #ffcc00;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;  /* Layout with flexbox */
+            flex-direction: column;  /* List items are arranged vertically */
+        }
+
+        li {
+            background-color: #ffffff;
+            border: 5px solid #ffcc00;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;  /* The elements in the list item are arranged vertically */
+        }
+
+        li h3 {
+            margin-top: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* New style: make boxes horizontally aligned */
+        .horizontal-list {
+            display: flex;
+            flex-direction: row; /* landscape */
+            flex-wrap: wrap; /* If the screen is small, line feed */
+        }
+
+        .horizontal-list li {
+            flex: 1 1 30%; /* Each box takes up 30% of the width and can be adjusted as needed */
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Most Popular Cars in China 中国最畅销汽车🇨🇳</h1>
+    </header>
+
+    <section>
+        <h2>Top Models
+            <h2>懂车帝 China Automotive Website
+                <a href="https://www.dongchedi.com/">View</a>
+            </h2>
+        </h2>
+        <ul class="horizontal-list"> <!-- Added horizontal-list class, boxes will be arranged horizontally -->
+            <li>
+                <h3>比亚迪 BYD Han 汉EV</h3>
+
+                <!-- Parent elements containing images use flexbox layout -->
+                
+                <div style="display: flex; gap: 10px;">
+                    <img src="BYD han.jpg" alt="BYD Han" width="300">
+                    <img src="bydhan.jpg" alt="BYD Han" width="300">
+                </div>
+                
+                <p>The BYD Han is a popular electric sedan known for its luxury and performance.</p>
+                <a href="https://www.byd.com/us/car/han-ev">Learn more</a>
+                
+            </li>
+            <li>
+                <h3>蔚来 NIO ES6</h3>
+
+                <!-- Parent elements containing images use flexbox layout -->
+                <div style="display: flex; gap: 10px;">
+                    <img src="nio es6.jpg" alt="NIO ES6" width="300">
+                    <img src="nioes6.jpg" alt="NIO ES6" width="300">
+                </div>
+                
+                <p>The NIO ES6 is a smart SUV famous for its cutting-edge technology and design.</p>
+                <a href="https://www.nio.com/es6?&noredirect=">Learn more</a>                
+            </li>
+            <li>
+                <h3>特斯拉 Tesla Model 3</h3>
+
+<!-- Arranging images horizontally using flexbox layout -->
+              <div style="display: flex; gap: 10px;">
+                <img src="tesla model 3.jpg" alt="Tesla Model 3" width="300">
+                <img src="teslascreen.jpg" alt="Tesla Model 3" width="300">
+                </div>
+
+            <p>The Tesla Model 3 is one of the most popular electric cars in the Chinese market.</p>
+            <a href="https://www.tesla.com/model3-choose">Learn more</a>
+
+            <li>
+                <h3>理想 Li Auto MEGA</h3>
+                <!-- Arranging images horizontally using flexbox layout -->
+                <div style="display: flex; gap: 10px;">
+                    <img src="li mega.jpg" alt="Li Auto ONE" width="300">
+                    <img src="meganeishi.jpg" alt="Li Auto ONE" width="300">
+                </div>
+                <p>The Li Auto ONE is a hybrid SUV that combines electric power with a range extender, making it ideal for long trips.</p>
+                <a href="https://www.lixiang.com/mega#li">Learn more</a>
+            </li>
+            <li>
+                <h3>小米 Xiaomi Auto SU7</h3>
+
+                <!-- Arranging images horizontally using flexbox layout -->
+                <div style="display: flex; gap: 10px;">
+                    <img src="xiaomi su7.jpg" alt="Xiaomi SU7" width="300">
+                    <img src="su7u.jpg" alt="Xiaomi SU7" width="300">
+                </div>
+                
+                <p>The Xiaomi SU7 is an innovative electric vehicle that offers a blend of advanced technology and sleek design.</p>
+                <a href="https://www.xiaomiev.com/">Learn more</a>
+                
+            </li>
+            <li>
+                <h3>极氪 Zeekr 001</h3>
+
+                <!-- Arranging images horizontally using flexbox layout -->
+                <div style="display: flex; gap: 10px;">
+                    <img src="zeekr.jpg" alt="Zeekr 001" width="300">
+                    <img src="001.jpg" alt="Zeekr 001" width="300">
+                </div>
+                
+                <p>The Zeekr 001 is a high-performance electric shooting brake, known for its impressive range and advanced features.</p>
+                <a href="https://www.zeekr.eu/models/001">Learn more</a>                
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>China is a rising power in new energy vehicles</p>
+    </footer>
+</body>
+</html>
