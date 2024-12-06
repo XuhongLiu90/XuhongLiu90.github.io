@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Car Vending Building with Elevator</title>
+
+    <!-- Google Font for Artistic Font Style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #BDE0FE;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .building-container {
+            display: flex;
+            flex-direction: row; /* 横向排列大楼、电梯和通道 */
+            align-items: flex-start;
+            margin-top: 100px; /* 增加margin-top将整个建筑物下移 */
+            margin-left: 400px; /* 增加margin-left将整个建筑物右移 */
+        }
+
+        /* 广告牌样式 */
+        .billboard {
+            position: absolute;
+            top: 400px; /* 将广告牌放置在一楼的左边 */
+            left: 50px;
+            width: 350px;
+            height: 200px;
+            background-color: #FFBE0B;
+            color: rgb(0, 0, 0);
+            border: 10px solid #ADB5BD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+
+            
+        }
+/* 广告牌支撑柱样式 */
+.billboard-support {
+            position: absolute;
+            top: 620px; /* 支撑柱紧接广告牌下方 */
+            left: 215px; /* 支撑柱居中 */
+            width: 50px;
+            height: 310px;
+            background-color: #ADB5BD; /* 支撑柱颜色 */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+
+        }
+        /* 拖车图像样式 */
+        .tow-truck {
+            position: absolute;
+            top: 795px; /* 拖车位置调整 */
+            left: 300px; /* 拖车靠近大楼 */
+            width: 300px;
+            height: auto;
+        }
+          /* 地面样式 */
+        .ground {
+            position: absolute;
+            top: 931px;
+            left: 0;
+            width: 100%; /* 地面延伸到页面宽度 */
+            height: 200px; /* 地面高度 */
+            background-color: #2b2b2b; /* 深色地面 */
+            z-index: 1;
+        }
+
+        /* 调整后的招牌样式，上移避免重叠 */
+        .roof {
+            background-color: #e67e22;
+            width: 250px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            font-family: 'Roboto', sans-serif; /* 使用标准的商业字体 */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: -60px; /* 上移，避免与八楼重叠 */
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .building {
+            display: grid;
+            grid-template-columns: 1fr; /* 单列布局 */
+            grid-template-rows: repeat(8, 1fr); /* 8层 */
+            gap: 10px;
+            background-color: rgba(194, 182, 182, 0.971);
+            width: 410px;
+            height: 810px; /* 保持大楼的尺寸 */
+            padding: 10px;
+            border: 2px solid #333; /* 大楼外部边框 */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .floor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #333; /* 每层的黑色分隔线 */
+            height: 80px; /* 每层的高度 */
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* 廊桥通道样式 */
+        .bridge {
+            position: absolute;
+            width: 150px; /* 桥的宽度 */
+            height: 40px; /* 桥的高度 */
+            background-color: #a0a0a0; /* 桥的颜色 */
+            right: -160px; /* 使通道从大楼延伸到电梯 */
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 模拟立体效果 */
+            border-radius: 5px;
+        }
+
+        /* 电梯样式，外框蓝色，内框白色，放在大楼旁边 */
+        .elevator-container {
+            margin-left: 20px;
+            position: relative;
+            width: 100px;
+            height: 800px; /* 电梯总高度 */
+            border: 2px solid #3498db; /* 外框蓝色 */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: rgba(175, 157, 157, 0.645); /* 内框白色 */
+        }
+
+        .elevator {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background-color: white; /* 内框白色 */
+            border: 5px solid #3498db; /* 内框蓝色 */
+            border-radius: 5px;
+            transform: translateY(700px); /* 初始化电梯停在1楼 */
+            transition: transform 2s ease-in-out; /* 平滑过渡效果 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem; /* 字体大小 */
+        }
+
+        /* 电梯标志的样式 */
+        .elevator span {
+            font-size: 3rem; /* 更大的字体大小来展示电梯标志 */
+        }
+
+        /* 新增框容器样式，向右边移动 */
+        .control-box {
+            background-color: white;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            margin-left: 40px; /* 往右移动 */
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .controls button:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 广告牌 -->
+    <div class="billboard">
+        <a href="https://opendisplay.adsemble.com/?gad_source=1&gclid=Cj0KCQjw9Km3BhDjARIsAGUb4nxznzt4t3Xigw5TnvNfkF5hOI-hOilDuRF9hdsmbkOVLY2Fc1jSoNEaAro2EALw_wcB" target="_blank" style="text-decoration: none; color: black;">
+            20% OFF ALL CARS IN BUILDING
+        </a>
+    </div>
+    
+    
+</div>
+ <!-- 支撑柱 -->
+ <div class="billboard-support"></div>
+
+   <!-- 拖车图像，替换为你的实际拖车图片链接 -->
+   <a href="https://www.truckpaper.com/listings/tow-trucks-for-sale-in-richmond-virginia/?Category=16060&State=VIRGINIA&City=RICHMOND&srsltid=AfmBOopz3kdSk0nRItrayHNq5xY9clJ5MzWJqC-eTT3SX3Ue8k3APQjn" target="_blank">
+    <img src="pngtree-truck-towing-car-trek-derek-mobil-png-vektor-transparent-background-png-image_5574591.png-ai-brush-removebg-m2tj0ama.png" alt="Tow Truck" class="tow-truck">
+</a>
+
+   <!-- 地面 -->
+   <div class="ground"></div>
+
+<div class="building-container">
+    <!-- 大楼主体，8层 -->
+    <div class="building">
+        <!-- 调整后的招牌，放在楼顶中央 -->
+        <div class="roof">CARBEST ❌ CARMAX</div>
+        
+
+        <!-- 每一层楼与电梯连接，使用廊桥 -->
+        
+         <!-- 每一层楼与电梯连接，使用廊桥 -->
+         <div class="floor">
+            <!--floor 7-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carfax.com/Used-Bentley_m39" target="_blank">
+                    <img src="bentley_PNG25.png" width="150px" alt="bentleymotors">
+                </a>
+               
+            </div>
+        </div>
+        
+         
+        
+        <div class="floor">
+            <!--floor 7-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars?search=718" target="_blank">
+                    <img src="Porsche-718-Boxster-PNG-Photos.png" width="110px" alt="Porsche-718-Boxster-PNG-Photos">
+                </a>
+               
+            </div>
+        </div>
+        
+        
+        <div class="floor">
+            <!--floor 6-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars?search=glc" target="_blank">
+                    <img src="mercedes-benz-glc.png" width="125px" alt="mercedes-benz-glc">
+                </a>
+   
+            </div>
+        </div>
+       
+       
+        <div class="floor">
+            <!--floor 5-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars?search=f150" target="_blank">
+                    <img src="ford f150.png" width="110px" alt="ford f150">
+                </a>
+                <a href="https://www.carmax.com/cars?search=X5" target="_blank">
+                    <img src="bmwx5.png" width="110px" alt="bmwx5">
+                </a>
+               
+            </div>
+        </div>
+        
+        
+        
+        <div class="floor">
+            <!--floor 4-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars?search=Audi+Q5" target="_blank">
+                    <img src="audiQ5.png" width="100px" alt="audiQ5">
+                </a>
+                
+            </div>
+        </div>
+
+
+        <div class="floor">
+            <!--floor 3-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars?search=model+3" target="_blank">
+                    <img src="Tesla-Model-3.png" width="125px" alt="Tesla-Model-3">
+                </a>
+                <a href="https://www.carmax.com/cars?search=Nissan+Altima" target="_blank">
+                    <img src="2020-Nissan-Altima-Platinum-storm-blue-metallic-hero.png" width="125px" alt="2020-Nissan-Altima-Platinum-storm-blue-metallic-hero">
+                </a>
+                <a href="https://www.carmax.com/cars?search=golf" target="_blank">
+                    <img src="images.png" width="90px" alt="golf-gti">
+                </a>
+            </div>
+        </div>
+        
+        
+        <div class="floor">
+            <!--floor 2-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars?search=Ford+Explorer" target="_blank">
+                    <img src="2018_Ford_Explorer_XLT.png" width="135px" alt="ford%20explorer">
+                </a>
+                <a href="https://www.carmax.com/cars?search=Ford+Mustang">
+                <img src="Ford-Mustang-PNG-Picture.png" width="145px" alt="Ford-Mustang-PNG-Picture">
+                </a>
+                
+            </div>
+        </div>
+        <!-- In the HTML section, update the first floor to add Toyota car images -->
+
+        
+        <div class="floor">
+            <!--floor 1-->
+            <div class="bridge"></div>
+            <!-- Container to hold the car images -->
+            <div class="car-display">
+                <a href="https://www.carmax.com/cars/toyota/camry?location=richmond+va" target="_blank">
+                    <img src="Toyota-Camry-PNG-Isolated-HD.png" width="125px" alt="Toyota Car 1">
+                </a>
+                <a href="https://www.carmax.com/cars?search=rva4" target="_blank">
+                    <img src="2020-toyota-rav4-hybrid-limited-4wd-suv-angular-front.png" width="125px" alt="Toyota Car 2">
+                </a>
+                <a href="https://www.carmax.com/cars?search=Toyota+Highlander" target="_blank">
+                    <img src="0019_24.png" width="125px" alt="Toyota Car 3">
+                </a>
+            </div>
+        </div>
+        
+
+    </div>
+    
+
+    <!-- 电梯放在大楼一楼旁边，默认停在一楼 -->
+    <div class="elevator-container">
+        <div id="elevator" class="elevator">
+            <!-- 在电梯内部加电梯标志 -->
+            <span>🛗</span>
+        </div>
+    </div>
+
+    <!-- 新增框容器，放在电梯旁边，按钮顺序调整为从下到上 -->
+    <div class="control-box">
+        <!-- 控制按钮放在框内 -->
+        <div class="controls">
+            <button onclick="moveToFloor(8)">8</button>
+            <button onclick="moveToFloor(7)">7</button>
+            <button onclick="moveToFloor(6)">6</button>
+            <button onclick="moveToFloor(5)">5</button>
+            <button onclick="moveToFloor(4)">4</button>
+            <button onclick="moveToFloor(3)">3</button>
+            <button onclick="moveToFloor(2)">2</button>
+            <button onclick="moveToFloor(1)">1</button>
+        </div>
+    </div>
+</div>
+
+<!-- 内嵌的 JavaScript -->
+<script>
+    const elevator = document.getElementById('elevator');
+
+    // 楼层高度间隔为100px，电梯初始停在1楼 (translateY 700px)，每层高度是100px
+    function moveToFloor(floor) {
+        const distance = (8 - floor) * 100;  // 根据楼层计算电梯要移动的距离
+        elevator.style.transform = `translateY(${distance}px)`;
+    }
+</script>
+
+</body>
+</html>
