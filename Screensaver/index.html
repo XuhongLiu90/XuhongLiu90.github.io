@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Sunrise Animation with Mountains</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000; /* 初始背景黑色 */
+            font-family: Arial, sans-serif;
+        }
+
+        .sky {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #000000, #000000); /* 初始背景为纯黑 */
+            animation: skyFade 120s linear infinite; /* 延长动画时间 */
+        }
+
+        .sun {
+            position: absolute;
+            bottom: -20%; /* 初始位置在视图外 */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ffcc33, #ff8008);
+            border-radius: 50%;
+            box-shadow: 0 0 60px 30px rgba(255, 128, 0, 0.5);
+            animation: sunrise 120s ease-in-out infinite; /* 延长动画时间 */
+        }
+
+        /* 山脉剪影样式 */
+        .mountain {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            background: linear-gradient(to top, #2b2b2b, #000000);
+            clip-path: polygon(0% 100%, 10% 75%, 25% 80%, 40% 60%, 60% 75%, 75% 50%, 100% 80%, 100% 100%);
+            z-index: 1;
+            animation: mountainFade 120s linear infinite;
+        }
+
+        @keyframes sunrise {
+            0% {
+                bottom: -20%; /* 太阳在视图下方不可见 */
+                opacity: 0; /* 初始透明 */
+            }
+            20% {
+                bottom: -5%; /* 太阳开始露出 */
+                opacity: 0.5; /* 逐渐显现 */
+            }
+            50% {
+                bottom: 30%; /* 太阳上升到视图中央偏下 */
+                opacity: 1;
+            }
+            80% {
+                bottom: 70%; /* 太阳接近顶部 */
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%; /* 太阳移出视图 */
+                opacity: 0;
+            }
+        }
+
+        @keyframes skyFade {
+            0% {
+                background: linear-gradient(to top, #000000, #000000); /* 夜晚黑色 */
+            }
+            15% {
+                background: linear-gradient(to top, #0a0a23, #0a0a23); /* 深夜微光 */
+            }
+            30% {
+                background: linear-gradient(to top, #1c1c3d, #1c1c3d); /* 微弱晨光 */
+            }
+            45% {
+                background: linear-gradient(to top, #3b3b6b, #2c2c54); /* 破晓微蓝 */
+            }
+            60% {
+                background: linear-gradient(to top, #515a69, #7f8fa6); /* 破晓灰蓝色 */
+            }
+            75% {
+                background: linear-gradient(to top, #87CEEB, #FFD700); /* 日出时分天空颜色 */
+            }
+            90% {
+                background: linear-gradient(to top, #87CEEB, #FFD700); /* 白天颜色 */
+            }
+            100% {
+                background: linear-gradient(to top, #87CEEB, #FFD700); /* 白天颜色 */
+            }
+        }
+
+        /* 山脉剪影的淡入淡出效果 */
+        @keyframes mountainFade {
+            0% {
+                opacity: 0; /* 初始状态不可见 */
+            }
+            50% {
+                opacity: 0.8; /* 日出时山脉逐渐显现 */
+            }
+            100% {
+                opacity: 1; /* 完全显现 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="sun"></div>
+        <div class="mountain"></div> <!-- 山脉剪影 -->
+    </div>
+</body>
+</html>

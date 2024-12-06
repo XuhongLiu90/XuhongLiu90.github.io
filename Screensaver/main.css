@@ -1,0 +1,57 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000; /* 初始背景黑色 */
+    font-family: Arial, sans-serif;
+}
+
+.sky {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #000000, #000000); /* 初始背景为纯黑 */
+    animation: skyFade 20s linear infinite;
+}
+
+.sun {
+    position: absolute;
+    bottom: -20%; /* 初始位置在视图外 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ffcc33, #ff8008);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 30px rgba(255, 128, 0, 0.5);
+    animation: sunrise 20s ease-in-out infinite;
+}
+
+@keyframes sunrise {
+    0% {
+        bottom: -20%; /* 太阳在视图下方不可见 */
+        background: radial-gradient(circle, #ffcc33, #ff8008);
+    }
+    50% {
+        bottom: 50%; /* 太阳上升到天空中央 */
+        background: radial-gradient(circle, #ffcc33, #ff8008);
+    }
+    100% {
+        bottom: 110%; /* 太阳移出视图 */
+        background: radial-gradient(circle, #ffcc33, #ff8008);
+    }
+}
+
+@keyframes skyFade {
+    0% {
+        background: linear-gradient(to top, #000000, #000000); /* 夜晚黑色 */
+    }
+    50% {
+        background: linear-gradient(to top, #87CEEB, #FFD700); /* 白天天空蓝色到金色过渡 */
+    }
+    100% {
+        background: linear-gradient(to top, #000000, #000000); /* 夜晚黑色 */
+    }
+}
