@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Transition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather rain">
+            <div class="buildings"></div>
+            <div class="pier"></div>
+            <div class="lamp">
+                <div class="lamp-post"></div>
+                <div class="lamp-light"></div>
+            </div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+            <div class="raindrops"></div>
+        </div>
+        <div class="weather cloudy">
+            <div class="mountains"></div>
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="cloud cloud-5"></div>
+            <div class="cloud cloud-6"></div>
+            <div class="cloud cloud-7"></div>
+            <div class="cloud cloud-8"></div>
+            <div class="cloud cloud-9"></div>
+        </div>
+        <div class="weather sunny">
+            <div class="sun"></div>
+            <div class="airplane">
+                <!-- 插入飞机的图片，替换下面的 img 标签的 src -->
+                <div class="banner">Carbest 20% off for today!</div>
+                <img src="/Users/liusteven/Desktop/Accordion/lovepik-aircraft-png-image_401704811_wh860-removebg.png" alt="airplane" class="plane">
+            </div> <!-- Added airplane with banner -->
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+/* Reset some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Rainy background */
+.weather.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #0a47a3, #001f54);
+    display: none;
+    background-size: cover;
+    filter: brightness(0.8);
+}
+
+/* Buildings */
+.buildings {
+    position: absolute;
+    bottom: 30%;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, #333, transparent);
+    z-index: 5;
+}
+
+/* Pier */
+.pier {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    background: #4e4e4e;
+    z-index: 4;
+    box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pier Navigation Lamp */
+.lamp {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+}
+
+.lamp-post {
+    width: 6px;
+    height: 100px;
+    background-color: #444;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+}
+
+.lamp-light {
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle, rgba(255,255,224,0.9), rgba(255,255,224,0.3));
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 224, 0.7), 0 0 30px rgba(255, 255, 224, 0.5);
+}
+
+/* Raindrops */
+.raindrops {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: white;
+    top: -20px;
+    animation: fall 1s infinite linear;
+    opacity: 0.6;
+    z-index: 7;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(120vh); }
+}
+
+/* Cloudy background */
+.weather.cloudy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #d3d3d3, #b0c4de, #f0f0f0);
+    display: none;
+    background-size: cover;
+    filter: brightness(0.9);
+}
+
+/* Adding mountain silhouettes */
+.mountains {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, #8B8B8B, transparent);
+    z-index: 3;
+}
+
+/* Randomly shaped clouds */
+.cloud {
+    position: absolute;
+    background: #fff;
+    animation: drift 20s infinite linear;
+}
+
+/* Unique cloud shapes */
+.cloud-1 {
+    width: 180px;
+    height: 100px;
+    border-radius: 100px 100px 30px 30px;
+    box-shadow: 50px 30px 0px 10px #fff, 100px 50px 0px 10px #fff;
+}
+
+.cloud-2 {
+    width: 220px;
+    height: 120px;
+    border-radius: 150px 150px 40px 40px;
+    box-shadow: 60px 40px 0px 10px #fff, 120px 60px 0px 10px #fff;
+}
+
+.cloud-3 {
+    width: 150px;
+    height: 80px;
+    border-radius: 90px 90px 40px 40px;
+    box-shadow: 40px 25px 0px 10px #fff, 80px 45px 0px 10px #fff;
+}
+
+.cloud-4 {
+    width: 200px;
+    height: 100px;
+    border-radius: 100px 100px 50px 50px;
+    box-shadow: 50px 30px 0px 10px #fff, 100px 50px 0px 10px #fff;
+}
+
+.cloud-5 {
+    width: 250px;
+    height: 130px;
+    border-radius: 140px 140px 40px 40px;
+    box-shadow: 70px 40px 0px 10px #fff, 140px 80px 0px 10px #fff;
+}
+
+.cloud-6 {
+    width: 200px;
+    height: 100px;
+    border-radius: 120px 120px 50px 50px;
+    box-shadow: 60px 35px 0px 10px #fff, 120px 60px 0px 10px #fff;
+}
+
+.cloud-7 {
+    width: 170px;
+    height: 90px;
+    border-radius: 90px 90px 30px 30px;
+    box-shadow: 40px 25px 0px 10px #fff, 80px 50px 0px 10px #fff;
+}
+
+.cloud-8 {
+    width: 230px;
+    height: 120px;
+    border-radius: 150px 150px 50px 50px;
+    box-shadow: 60px 40px 0px 10px #fff, 130px 70px 0px 10px #fff;
+}
+
+.cloud-9 {
+    width: 190px;
+    height: 110px;
+    border-radius: 110px 110px 30px 30px;
+    box-shadow: 50px 30px 0px 10px #fff, 110px 60px 0px 10px #fff;
+}
+
+/* Random Cloud Positions */
+.weather.cloudy .cloud:nth-child(1) { top: 5%; left: 5%; animation-duration: 30s; }
+.weather.cloudy .cloud:nth-child(2) { top: 15%; left: 35%; animation-duration: 40s; }
+.weather.cloudy .cloud:nth-child(3) { top: 10%; left: 65%; animation-duration: 28s; }
+.weather.cloudy .cloud:nth-child(4) { top: 30%; left: 25%; animation-duration: 35s; }
+.weather.cloudy .cloud:nth-child(5) { top: 40%; left: 55%; animation-duration: 37s; }
+.weather.cloudy .cloud:nth-child(6) { top: 50%; left: 75%; animation-duration: 45s; }
+.weather.cloudy .cloud:nth-child(7) { top: 65%; left: 15%; animation-duration: 33s; }
+.weather.cloudy .cloud:nth-child(8) { top: 70%; left: 50%; animation-duration: 39s; }
+.weather.cloudy .cloud:nth-child(9) { top: 80%; left: 85%; animation-duration: 41s; }
+
+/* Cloud movement animation */
+@keyframes drift {
+    0% { left: -200px; }
+    100% { left: 100vw; }
+}
+
+/* Sun */
+.sun {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, yellow, orange);
+    border-radius: 50%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Airplane with banner */
+.airplane {
+    position: absolute;
+    top: 20%;
+    left: -200px;
+    display: flex;
+    align-items: center;
+    animation: fly 20s infinite linear;
+}
+
+.plane {
+    width: 200px; /* 将飞机宽度增大到200px */
+    height: auto; /* 保持图片比例 */
+}
+
+.banner {
+    width: 200px;
+    height: 40px;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-right: 10px; /* 将横幅放在飞机左侧 */
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+@keyframes fly {
+    0% {
+        left: -300px; /* 调整动画开始位置以适应飞机的大小 */
+    }
+    100% {
+        left: 100vw;
+    }
+}
+
+/* Small screens: Rainy */
+@media screen and (max-width: 600px) {
+    .weather.rain {
+        display: block;
+    }
+}
+
+/* Medium screens: Cloudy */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .weather.cloudy {
+        display: block;
+    }
+}
+
+/* Large screens: Sunny */
+@media screen and (min-width: 1025px) {
+    .weather.sunny {
+        display: block;
+    }
+}
+</style>

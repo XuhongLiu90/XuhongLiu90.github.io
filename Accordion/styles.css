@@ -1,0 +1,164 @@
+/* Reset some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Rainy background - dark blue sky with gradient and lighting effects */
+.weather.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #0a47a3, #001f54); /* Gradient from dark blue to darker blue */
+    display: none;
+    background-size: cover;
+    filter: brightness(0.8); /* Slightly darkened for rain effect */
+}
+
+/* Rain drops */
+.raindrops {
+    position: absolute;
+    width: 2px;
+    height: 20px; 
+    background: white;
+    top: -20px;
+    animation: fall 0.6s infinite linear; 
+    opacity: 0.6;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Multiple raindrops */
+.weather.rain .raindrops:nth-child(1) { left: 5%; animation-duration: 0.5s; }
+.weather.rain .raindrops:nth-child(2) { left: 15%; animation-duration: 0.7s; }
+.weather.rain .raindrops:nth-child(3) { left: 25%; animation-duration: 0.6s; }
+.weather.rain .raindrops:nth-child(4) { left: 35%; animation-duration: 0.8s; }
+.weather.rain .raindrops:nth-child(5) { left: 45%; animation-duration: 0.6s; }
+.weather.rain .raindrops:nth-child(6) { left: 55%; animation-duration: 0.9s; }
+.weather.rain .raindrops:nth-child(7) { left: 65%; animation-duration: 0.6s; }
+.weather.rain .raindrops:nth-child(8) { left: 75%; animation-duration: 0.7s; }
+.weather.rain .raindrops:nth-child(9) { left: 85%; animation-duration: 0.5s; }
+.weather.rain .raindrops:nth-child(10) { left: 95%; animation-duration: 0.9s; }
+
+/* Lightning effect */
+.weather.rain:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    animation: lightning 3s infinite;
+}
+
+@keyframes lightning {
+    0%, 97%, 100% { opacity: 0; }
+    98% { opacity: 1; }
+    99% { opacity: 0; }
+}
+
+/* Cloudy background - soft gradient with light grayish sky */
+.weather.cloudy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #d3d3d3, #b0c4de, #f0f0f0); 
+    display: none;
+    background-size: cover;
+    filter: brightness(0.9); 
+}
+
+.cloud {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: -30px 30px 0px 10px #fff, 30px 30px 0px 10px #fff, 0px 30px 0px 10px #fff;
+    animation: drift 6s infinite linear;
+}
+
+@keyframes drift {
+    0% { left: -200px; }
+    100% { left: 100%; }
+}
+
+/* Positioning the clouds */
+.weather.cloudy .cloud:nth-child(1) { top: 20%; left: 10%; }
+.weather.cloudy .cloud:nth-child(2) { top: 40%; left: 50%; }
+
+/* Sunny background - bright blue sky with gradient */
+.weather.sunny {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #87CEFA, #FFD700); 
+    display: none;
+    background-size: cover;
+    filter: brightness(1.2); 
+}
+
+/* Sun */
+.sun {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, yellow, orange); 
+    border-radius: 50%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Small screens: Rainy */
+@media screen and (max-width: 600px) {
+    .weather.rain {
+        display: block;
+    }
+}
+
+/* Medium screens: Cloudy */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .weather.cloudy {
+        display: block;
+    }
+}
+
+/* Large screens: Sunny */
+@media screen and (min-width: 1025px) {
+    .weather.sunny {
+        display: block;
+    }
+}
