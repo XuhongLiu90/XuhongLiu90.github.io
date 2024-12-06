@@ -4,7 +4,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let carImage = new Image();
-carImage.src = '/Users/liusteven/Desktop/VCU/大四/web design/Control/ModelXnoshadow_birdseyeview.png';
+carImage.src = 'Control/ModelXnoshadow_birdseyeview.png';
 
 let car = {
     x: canvas.width / 2 - 25,
