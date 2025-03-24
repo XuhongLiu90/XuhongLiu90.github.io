@@ -1,107 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Xuhong's Homepage</title>
-        <!-- 添加 favicon，确保大小为32x32px或16x16px -->
-        <link rel="icon" type="image/png" href="IMG_7270.jpeg" sizes="32x32">
-        <style>
-            /* 全局样式 */
-            body {
-                background: url('IMG_7270.jpeg') no-repeat center center fixed; /* 正确的背景图片设置 */
-                background-size: cover; /* 图片自适应填充整个页面 */
-                font-family: 'Arial', sans-serif;
-                color: #333;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-            }
-
-            /* 容器样式 */
-            .container {
-                text-align: center;
-                background-color: rgba(255, 255, 255, 0.8); /* 设置白色方块的透明度 */
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                max-width: 500px;
-                width: 90%;
-            }
-
-            /* 标题样式 */
-            h1 {
-                color: #4CAF50;
-                font-size: 2.5em;
-                margin-bottom: 10px;
-            }
-
-            h2 {
-                color: #333;
-                margin-bottom: 20px;
-            }
-
-            /* 列表样式 */
-            ul {
-                list-style-type: none;
-                padding: 0;
-            }
-
-            li {
-                margin-bottom: 15px;
-            }
-
-            /* 链接样式 */
-            a {
-                color: #4CAF50;
-                font-size: 1.2em;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-
-            a:hover {
-                color: #f28a30;
-                text-decoration: underline;
-            }
-
-            /* 底部间距 */
-            footer {
-                margin-top: 20px;
-                color: #0dd9e8;
-                font-size: 0.9em;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Have a good one.</h1>
-            <h2>Here is Xuhong. Welcome!!!</h2>
-            <ul>
-                <li><a href="Fristwebsite/index.html">First Website</a></li>
-                <li><a href="reflecting-on-the-reading.html">Reflecting on the Reading</a></li>
-                <li><a href="passion/home.html">Passion Project</a></li>
-                <li><a href="aeyoon Choi, Hello World.html">aeyoon Choi, Hello World!</a></li>
-                <li><a href="Callum Copley .html">Callum Copley</a></li>
-                <li><a href="Becca Abbe/indext.html">Becca Abbe</a></li>
-                <li><a href="Boilerplate/Frank Chimero's The Good Room index.html">Frank Chimero's The Good Room</a></li>
-                <li><a href="Control/index.html">Control</a></li>
-                <li><a href="Structure/index.html">Structure</a></li>
-                <li><a href="Screensaver/index.html">Screensaver</a></li>
-                <li><a href="Accordion/index.html">Accordion</a></li>
-                <li><a href="final/index.html">Final</a></li>
-
-
-
-
-            </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xuhong's Scrap Car Art Museum</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #5a3d2b, #1e1e1e, #3d1e12);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+      cursor: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('carp.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -2;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+    .title {
+      font-size: 3em;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-align: center;
+    }
+    .start-button {
+      padding: 15px 30px;
+      background: #c0392b;
+      border: none;
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 30px;
+    }
+    .start-button:hover {
+      background: #e74c3c;
+    }
+    .custom-cursor {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      background: url('tyres-png-q9h2c4y9nd0gy6e4.jpg.png') no-repeat center center;
+      background-size: cover;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+    .hidden {
+      display: none;
+    }
+    .garage-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85vw;
+      max-width: 1300px;
+    }
+    .roof {
+      width: 100%;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.3);
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+    .garage-door {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #3a3a3a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 1s ease-in-out;
+      z-index: 2;
+    }
+    .garage-door.open {
+      transform: translateY(-100%);
+      z-index: -1;
+    }
+    .garage-frame {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      background: rgba(0, 0, 0, 0.7);
+      border: 5px solid rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .slot {
+      position: relative;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 3px solid rgba(255, 255, 255, 0.5);
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+    }
+    .slot:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+    /* 各项目槽样式 */
+    .slot.project-1 {
+      background-image: url('project1 .jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .slot.project-1:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    .slot.simpson-prediction {
+      background-image: url('Simpson prediction.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .slot.simpson-prediction:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    /* Structure 项目超链接 */
+    .slot.project-structure {
+      background-image: url('Structure.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+    }
+    .slot.project-structure:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    /* Dongchedi ❌ Carbest 项目超链接 */
+    .slot.project-dongchedi {
+      background-image: url('懂车帝.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+    }
+    .slot.project-dongchedi:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    /* Sticker Factroy ❌ Lowe's */
+    .slot.project-sticker {
+      background-image: url('blind box.jpeg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .slot.project-sticker:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    /* The Five Elements */
+    .slot.project-five-elements {
+      background-image: url('the five elements.jpeg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .slot.project-five-elements:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    /* China New Energy Vehicle 项目超链接 */
+    .slot.project-china-new-energy {
+      background-image: url('新能源.jepg.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+    }
+    .slot.project-china-new-energy:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    /* Control 项目超链接 */
+    .slot.project-control {
+      background-image: url('game.jepg.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+    }
+    .slot.project-control:hover {
+      background-size: cover;
+      background-position: center;
+    }
+    .slot-text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    /* 艺术化 Toggle 开关，模拟家庭灯开关的上下扳动 */
+    .toggle-switch {
+      position: absolute;
+      bottom: 20px;
+      right: -110px;
+      width: 50px;
+      height: 100px;
+      background: linear-gradient(to bottom, #555, #333333);
+      border: 2px solid #ffffff;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 100;
+    }
+    .toggle-switch:hover {
+      background: linear-gradient(to bottom, #666, #444);
+    }
+    .switch-knob {
+      width: 30px;
+      height: 30px;
+      background: #ccc;
+      border: 2px solid #999;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    .toggle-switch.active .switch-knob {
+      transform: translateY(-30px);
+    }
+  </style>
+</head>
+<body>
+  <div class="background-image"></div>
+  <div class="container" id="main-container">
+    <div class="title">Welcome to Xuhong's car garage.</div>
+    <button class="start-button" onclick="enterMuseum()">Enter</button>
+  </div>
+  
+  <div class="custom-cursor" id="cursor"></div>
+  
+  <div id="garage-page" class="hidden">
+    <div class="garage-container">
+      <div class="roof"></div>
+      <div class="garage-frame">
+        <div class="garage-door" onclick="openGarage()">Click to Open Garage</div>
+        <!-- 修改点击事件，直接跳转到 project1.html -->
+        <div class="slot project-1" onclick="window.location.href='project1 .html'">
+          <div class="slot-text">Make A Humor</div>
         </div>
-
-        <footer>
-            &copy; 2024 Xuhong's Homepage. All rights reserved.
-        </footer>
-    </body>
+        <div class="slot simpson-prediction" onclick="window.location.href='Simpson prediction.html'">
+          <div class="slot-text">Simpson prediction</div>
+        </div>        
+        <!-- Structure 项目超链接 -->
+        <div class="slot project-structure" onclick="window.location.href='Structure/index.html'">
+          <div class="slot-text">Structure</div>
+        </div>
+        <!-- Dongchedi ❌ Carbest 项目超链接 -->
+        <div class="slot project-dongchedi" onclick="window.location.href='final/index.html'">
+          <div class="slot-text">Dongchedi ❌ Carbest</div>
+        </div>
+        <!-- Sticker Factroy ❌ Lowe's -->
+        <div class="slot project-sticker" onclick="window.location.href='STICKER.html'">
+          <div class="slot-text">Sticker Factroy ❌ Lowe's</div>
+        </div>        
+        <!-- The Five Elements -->
+        <div class="slot project-five-elements" onclick="window.location.href='THE FIVE ELEMENTS.html'">
+          <div class="slot-text">The Five Elements</div>
+        </div>        
+        <!-- China New Energy Vehicle 项目超链接 -->
+        <div class="slot project-china-new-energy" onclick="window.location.href='https://bobcat-duck-532k.squarespace.com'">
+          <div class="slot-text">China New Energy Vehicle 🇨🇳</div>
+        </div>
+        <!-- Control 项目超链接 -->
+        <div class="slot project-control" onclick="window.location.href='Control/index.html'">
+          <div class="slot-text">Control</div>
+        </div>
+      </div>
+      <!-- 艺术化 Toggle 开关 -->
+      <div id="toggleSwitch" class="toggle-switch" onclick="toggleGarageDoor()">
+        <div class="switch-knob"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 页面加载时检查是否已经进入博物馆
+    window.onload = function() {
+      if(localStorage.getItem("enteredMuseum") === "true"){
+        document.getElementById("main-container").classList.add("hidden");
+        document.getElementById("garage-page").classList.remove("hidden");
+      }
+    }
+    
+    function enterMuseum() {
+      localStorage.setItem("enteredMuseum", "true");
+      document.getElementById("main-container").classList.add("hidden");
+      document.getElementById("garage-page").classList.remove("hidden");
+    }
+    function openGarage() {
+      document.querySelector(".garage-door").classList.add("open");
+      document.getElementById("toggleSwitch").classList.add("active");
+    }
+    function toggleGarageDoor() {
+      let door = document.querySelector(".garage-door");
+      let toggleSwitch = document.getElementById("toggleSwitch");
+      door.classList.toggle("open");
+      toggleSwitch.classList.toggle("active");
+    }
+    function viewProject(id) {
+      alert("Viewing project " + id);
+    }
+    document.addEventListener("mousemove", function(event) {
+      let cursor = document.getElementById("cursor");
+      if (cursor) {
+        cursor.style.left = event.clientX + "px";
+        cursor.style.top = event.clientY + "px";
+      }
+    });
+  </script>
+</body>
 </html>

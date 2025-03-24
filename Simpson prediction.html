@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simpson prediction</title>
+  <style>
+    /* 全局样式 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* 头部区域：使用图片 */
+    header {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    header .header-content {
+      position: absolute;
+      bottom: 40px;
+      left: 50px;
+      z-index: 1;
+      color: #04fe00;
+    }
+    header .header-content h1 {
+      margin: 0;
+      font-size: 2.8em;
+    }
+
+    /* 网站介绍部分 */
+    .intro {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .intro h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-left: 4px solid #007ACC;
+      padding-left: 10px;
+    }
+    .intro p {
+      font-size: 1.1em;
+    }
+
+    /* 图片展示区域 */
+    .gallery {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 300px;
+      height: auto;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* 视频展示区域 */
+    .video-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .video-section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-left: 4px solid #007ACC;
+      padding-left: 10px;
+    }
+    .video-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+    }
+
+    /* 页脚 */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 头部区域 -->
+  <header>
+    <img src="Simpson prediction.jpeg" alt="头部图片">
+    <div class="header-content">
+      <h1>Simpson prediction</h1>
+      <p>Do you believe Simpson's prophecy?</p>
+    </div>
+  </header>
+
+  <!-- 介绍部分 -->
+  <section class="intro">
+    <h2>Introduction to the Simpson Prediction</h2>
+    <p>
+        Simpson's prophecies have successfully predicted a lot of things to happen, such as the Kobe crash, 9/11, Trump, and this poster is me summarizing and generalizing these
+    </p>
+  </section>
+
+  <!-- 图片展示 -->
+  <section class="gallery">
+    <img src="s1.jpeg" alt="展示图片1">
+    <img src="s2.jpeg" alt="展示图片2">
+    <img src="s3.jpeg" alt="展示图片3">
+  </section>
+
+  <!-- 视频展示 -->
+  <section class="video-section">
+    <h2>Video</h2>
+    <iframe width="800" height="450" src="https://www.youtube.com/embed/ovQzDVigSEA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+  </section>
+  
+
+  <!-- 页脚 -->
+  <footer>
+    &copy; Simpson Prediction
+  </footer>
+</body>
+</html>
